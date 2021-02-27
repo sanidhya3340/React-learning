@@ -1,0 +1,74 @@
+//index.html
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
+
+
+//index.js
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+
+
+//App.js
+import React from "react"
+import Header from "./Header.js"
+import Footer from "./Footer"
+import Main from "./Main.js"
+function App() {
+    return (
+        <div>
+            <Header />
+            <Main />
+            <Footer />
+        </div>
+    )
+}
+
+export default App
+
+
+//Main.js
+import React from "react"
+function Main() {
+    return (
+        <div><h4>This is Main Content</h4></div>
+    )
+}
+
+export default Main
+
+//Footer.js
+import React from "react"
+
+function Footer() {
+    return (
+        <footer>
+            <h3>This is my footer element</h3>
+        </footer>
+    )
+}
+
+export default Footer
+
+
+//Header.js
+import React from "react"
+
+function Header() {
+    return (
+        <nav>
+            <h1>This is header element</h1>
+        </nav>
+    )
+}
+export default Header
