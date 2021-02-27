@@ -1,0 +1,54 @@
+//index.js
+import React from "react"
+import ReactDOM from "react-dom"
+
+import MyInfo from "./MyInfo.js"
+import MyApp from "./MyApp.js"
+
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
+ReactDOM.render(<MyApp />,document.getElementById("root2"))
+
+//MyApp.js
+import React from "react"
+
+function MyApp() {
+  return(
+    <div><h1>This is My App</h1></div>
+  )
+}
+
+export default MyApp
+
+
+//MyInfo.js
+import React from "react"
+
+function MyInfo() {
+  return (
+    <div>
+      <h1>Bob Ziroll</h1>
+      <p>This is a paragraph about me...</p>
+      <ul>
+        <li>Thailand</li>
+        <li>Japan</li>
+        <li>Nordic Countries</li>
+      </ul>
+    </div>
+  )
+}
+
+export default MyInfo
+
+
+//index.html
+
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="root2"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
