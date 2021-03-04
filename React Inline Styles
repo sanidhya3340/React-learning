@@ -1,0 +1,22 @@
+import React from "react"
+import ReactDOM from "react-dom"
+const item={
+  color: "#FFFFFF",
+  marginLeft: 2,
+  listStyle: "none",
+  padding: 6
+}
+
+function App(){
+ return(
+   <div className="navbar">
+      <ul className="list">
+        <li style={item}>Home</li>
+        <li style={item}>Contact</li>
+        <li style={item}>Services</li>
+      </ul>
+   </div>
+ ) 
+}
+
+ReactDOM.render(<App />,document.getElementById("root"))
