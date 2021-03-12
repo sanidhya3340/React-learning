@@ -1,0 +1,53 @@
+//index.html
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+    </body>
+</html>
+
+
+//index.js
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from "./App"
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+
+//App.js
+import React from "react"
+import productsData from "./vschoolProducts"
+import Product from "./Product"
+
+function App() {
+    
+    const productComponents = productsData.map(item => <Product key = {item.id} product={item}/>)
+    
+  return (
+    <div>
+        {productComponents}
+    </div>
+  )
+}
+
+export default App
+
+
+//Product.js
+import React from "react"
+
+function Product(props) {
+    return (
+        <div>
+            <h2>{props.product.name}</h2>
+            <p>{props.product.price.toLocaleString("en-US", { style: "currency", currency: "USD" })} - {props.product.description}</p>
+        </div>
+    )
+}
+
+export default Product
