@@ -1,0 +1,26 @@
+//https://reactjs.org/docs/events.html#supported-events
+//Reference link for events occuring in react
+
+import React from "react"
+
+function handleClick() {
+    console.log("I was clicked")
+}
+
+function hoverevent(){
+    console.log("Mover hover baby!")
+}
+  
+
+function App() {
+    return (
+        <div>
+            <img onMouseOver={hoverevent}src="https://www.fillmurray.com/200/100"/>
+            <br />
+            <br />
+            <button onClick={handleClick}>Click me</button>
+        </div>
+    )
+}
+
+export default App
