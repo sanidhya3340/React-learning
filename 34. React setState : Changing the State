@@ -1,0 +1,39 @@
+import React from "react"
+
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+        this.clickevent1 = this.clickevent1.bind(this) //binding is importend where setState is used
+        this.clickevent2 = this.clickevent2.bind(this) //binding is importend where setState is used
+    }
+    clickevent1(){
+        // console.log("I clicked the button")
+        this.setState(prevState => {                  //prevState to get the previous value of state
+            return{
+                count: prevState.count + 1
+            }
+        })
+    }
+    clickevent2(){
+        // console.log("I clicked the button")
+        this.setState(prevState => {
+            return{
+                count: prevState.count - 1
+            }
+        })
+    }
+    render() {
+        return (
+            <div>
+                <h1>{this.state.count}</h1>
+                <button onClick = {this.clickevent1}>Change-1!</button>
+                <button onClick = {this.clickevent2}>Change-2!</button>
+            </div>
+        )
+    }
+}
+
+export default App
