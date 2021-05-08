@@ -1,0 +1,52 @@
+//App.js
+
+import React from "react"
+import Conditional from "./Conditional.js"
+
+class App extends React.Component
+{
+    constructor(){
+     super()
+     this.state = {
+         isLoading : true
+     }  
+    }
+     componentDidMount() {                 //After we render our component for the first time this method is called
+         setTimeout(() => {                //settimeout method (fucntion , time in ms)
+             this.setState({
+                 isLoading : false
+             })
+         }, 1500)                          //1500 ms
+     } 
+     
+    render() {
+        return(
+            //<h1>Sanidhya Bhardwaj</h1>
+            
+            <div>
+                {this.state.isLoading ?  <h1>Loading...</h1> : <Conditional/>}
+            </div>
+        )
+    }
+}
+
+export default App 
+
+
+//Conditional.js
+
+import React from "react"
+const styling = {
+    color: "#red",
+    marginLeft: 2,
+    listStyle: "none",
+    padding: 6
+    
+}
+function Conditional(){
+    return(
+        <h1 >Some cool stuff</h1>
+    )
+}
+
+export default Conditional
