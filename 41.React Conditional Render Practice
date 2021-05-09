@@ -17,24 +17,21 @@ class App extends React.Component{
         this.state = {
             isLog : false
         }
+        this.clickevent = this.clickevent.bind(this)
     }
-    // let x =2
-    // if(this.state.isLoggedin)
-    // {dis ="Logout"}
-    // else
-    // {dis = "Login"}
-    realcall(){
-        this.state.isLog ? <h1>Loged in</h1> : <h1>Logged Out</h1>
-    }
-    
     clickevent(){
-        console.log("clicked")
+        this.setState(prevState => {
+            return{
+                isLog : !prevState.isLog
+            }
+        })
     }
     render(){
+        let buttontext = this.state.isLog ? "Logout" : "Login"
         return(
             <div>
-                <h1>{this.realcall}</h1>
-                <button onClick = {this.clickevent}>Login/out</button>
+                {this.state.isLog ? <h1>loggedin</h1> : <h1>LoggedOut</h1>}
+                <button onClick = {this.clickevent}>{buttontext}</button>
             </div>
         )
     }
