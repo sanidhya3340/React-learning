@@ -23,15 +23,16 @@ class App extends Component {
             lastName : "",
             age : 0,
             gender :"",
-            place : ""
+            place : "",
+            isveg :false,
+            iskosh :false,
+            islact :false
         }
      this.handleChange = this.handleChange.bind(this)   
     }
-    handleChange(event){
-        const {name,value} = event.target;
-        this.setState({
-            [name] : value
-        })
+    handleChange(event) {
+        const {name, value, type, checked} = event.target
+        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
     }
     render() {
         return (
@@ -99,6 +100,32 @@ class App extends Component {
                     <br />
                     
                     {/* Create check boxes for dietary restrictions here */}
+                    <label>
+                    <input
+                    type="checkbox"
+                    name="isveg"
+                    checked={this.dietary}
+                    onChange={this.handleChange}
+                    />vegetarian
+                </label>
+                <br />
+                <label>
+                    <input
+                    type="checkbox"
+                    name="iskosh"
+                    checked={this.dietary}
+                    onChange={this.handleChange}
+                    />kosher
+                </label>
+                <br />
+                <label>
+                    <input
+                    type="checkbox"
+                    name="islact"
+                    checked={this.dietary}
+                    onChange={this.handleChange}
+                    />lactose 
+                </label>
                     <br />
                     
                     <button>Submit</button>
@@ -113,7 +140,11 @@ class App extends Component {
                     Your dietary restrictions: 
                     {/* Dietary restrictions here, comma separated */}
                 </p>
+                <p>vegitarian : {this.state.isveg ? "true" : "false"}</p>
+                <p>kosher : {this.state.iskosh ? "true" : "false"}</p>
+                <p>lactose : {this.state.islact ? "true" : "false"}</p>
             </main>
+            
         )
     }
 }
